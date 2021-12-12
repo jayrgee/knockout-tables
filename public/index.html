@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="index.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="content">
+      <table class="sticky">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Director</th>
+            <th>Year</th>
+            <th>Genre</th>
+            <th>Country</th>
+          </tr>
+        </thead>
+        <tbody data-bind="foreach: filmsToShow">
+          <tr>
+            <td data-bind="text: Title"></td>
+            <td data-bind="text: Director"></td>
+            <td data-bind="text: Year"></td>
+            <td data-bind="text: Genre"></td>
+            <td data-bind="text: Country"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="knockout-latest.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

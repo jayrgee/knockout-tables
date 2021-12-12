@@ -1,0 +1,9 @@
+table.sticky {
+    width: 100%
+}
+
+table.sticky thead {
+  position: sticky;
+  top: 0;
+  background-color: aquamarine;
+}
