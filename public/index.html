@@ -9,8 +9,25 @@
   </head>
   <body>
     <div id="content">
+      <h1>Disappearing Header</h1>
+      <div class="sticky-header">
+        <select data-bind="options: collections"></select>
+      </div>
       <table class="sticky">
         <thead>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+              <select data-bind="options: genres, value: genreToShow"></select>
+            </td>
+            <td>
+              <select
+                data-bind="options: countries, value: countryToShow"
+              ></select>
+            </td>
+          </tr>
           <tr>
             <th>Title</th>
             <th>Director</th>
@@ -30,7 +47,7 @@
         </tbody>
       </table>
     </div>
-    <script src="knockout-latest.js"></script>
+    <script src="knockout-v2.2.1.js"></script>
     <script src="index.js"></script>
   </body>
 </html>

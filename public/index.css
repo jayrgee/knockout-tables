@@ -1,9 +1,23 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+div.sticky-header {
+    position: sticky;
+    top: 0;
+    background-color: burlywood;
+}
+
+th {
+    width: 20%;
+}
+
 table.sticky {
     width: 100%
 }
 
 table.sticky thead {
   position: sticky;
-  top: 0;
+  top: 20px;
   background-color: aquamarine;
 }
