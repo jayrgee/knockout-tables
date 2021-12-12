@@ -17,24 +17,26 @@ const APP_MODEL = {};
         'golf',
       ]);
 
+      const BLANK = '';
+
+      const removeDupes = (arr) =>
+        arr.reduce(
+          (unique, item) =>
+            unique.includes(item) ? unique : [...unique, item],
+          []
+        );
+
       const genres = data.flatMap((i) => i.Genre.split(', '));
-      model.genres = ko.observableArray([
-        '',
-        ...genres
-          .filter((item, index) => genres.indexOf(item) === index)
-          .sort(),
-      ]);
+      model.genres = ko.observableArray([BLANK, ...removeDupes(genres).sort()]);
 
       const countries = data.flatMap((i) => i.Country.split(', '));
       model.countries = ko.observableArray([
-        '',
-        ...countries
-          .filter((item, index) => countries.indexOf(item) === index)
-          .sort(),
+        BLANK,
+        ...removeDupes(countries).sort(),
       ]);
 
-      model.genreToShow = ko.observable('');
-      model.countryToShow = ko.observable('');
+      model.genreToShow = ko.observable(BLANK);
+      model.countryToShow = ko.observable(BLANK);
 
       model.filmsToShow = ko.computed(function () {
         // Returns a filtered list of films
@@ -45,8 +47,8 @@ const APP_MODEL = {};
 
         return ko.utils.arrayFilter(data, function (film) {
           return (
-            (film.Genre.indexOf(genre) >= 0 || genre === '') &&
-            (film.Country.indexOf(country) >= 0 || country === '')
+            (genre === BLANK || film.Genre.indexOf(genre) >= 0) &&
+            (country === BLANK || film.Country.indexOf(country) >= 0)
           );
         });
       }, model);
