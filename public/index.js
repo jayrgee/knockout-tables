@@ -63,8 +63,10 @@ const APP_MODEL = {};
         const index = model.filterResult.map(i => i.Year).findIndex(i => i > '1999');
         console.log(`myPostProcessingLogic: ${index}`);
         const rows = document.querySelectorAll('tbody tr');
-        if (index > 4) {
+        if (index > 4 & rows.length > 4) {
           rows[index - 4].scrollIntoView();
+        } else {
+          window.scrollTo(0,0);
         }
       };
 
