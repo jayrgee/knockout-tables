@@ -1,23 +1,37 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body, option {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+select#collection {
+  height: 34px;
+  margin-bottom: 22px;
+}
+
+option {
+  padding: 2px;
 }
 
 div.sticky-header {
-    position: sticky;
-    top: 0;
-    background-color: burlywood;
+  position: sticky;
+  top: 0;
+  background-color: burlywood;
 }
 
 th {
-    width: 20%;
+  width: 20%;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
 }
 
 table.sticky {
-    width: 100%
+  width: 100%;
 }
 
 table.sticky thead {
   position: sticky;
-  top: 20px;
+  top: 56px;
   background-color: aquamarine;
 }
