@@ -8,15 +8,18 @@ const APP_MODEL = {};
     .then((data) => {
       model.data = data;
 
-      model.collections = ko.observableArray([
+      const collections = [
         'alpha',
         'bravo',
         'charlie',
         'delta',
         'echo',
         'foxtrot',
-        'golf',
-      ]);
+        'golf'
+      ];
+      model.collections = ko.observableArray(
+        collections.map((c) => `${c} collection`)
+      );
 
       const BLANK = '';
 
