@@ -4,6 +4,7 @@ const APP_MODEL = {};
 (function (model) {
   fetch('films.json')
     .then((response) => response.json())
+    .then((data) => data.sort((a, b) => (a.Year > b.Year ? 1 : -1)))
     .then((data) => {
       model.data = data;
 
