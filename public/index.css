@@ -19,6 +19,12 @@ div.sticky-header {
 
 th {
   width: 20%;
+  padding: 3px;
+}
+
+td {
+  padding: 3px;
+  border-bottom: #ddd 2px solid;
 }
 
 table {
