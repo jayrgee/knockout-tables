@@ -15,7 +15,7 @@ const APP_MODEL = {};
         'delta',
         'echo',
         'foxtrot',
-        'golf'
+        'golf',
       ];
       model.collections = ko.observableArray(
         collections.map((c) => `${c} collection`)
@@ -49,13 +49,24 @@ const APP_MODEL = {};
         const genre = model.genreToShow();
         const country = model.countryToShow();
 
-        return ko.utils.arrayFilter(data, function (film) {
+        model.filterResult = ko.utils.arrayFilter(data, function (film) {
           return (
             (genre === BLANK || film.Genre.indexOf(genre) >= 0) &&
             (country === BLANK || film.Country.indexOf(country) >= 0)
           );
         });
+
+        return model.filterResult;
       }, model);
+
+      model.myPostProcessingLogic = () => {
+        const index = model.filterResult.map(i => i.Year).findIndex(i => i > '1999');
+        console.log(`myPostProcessingLogic: ${index}`);
+        const rows = document.querySelectorAll('tbody tr');
+        if (index > 4) {
+          rows[index - 4].scrollIntoView();
+        }
+      };
 
       ko.applyBindings(model);
     });

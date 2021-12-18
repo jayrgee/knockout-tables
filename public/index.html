@@ -10,7 +10,7 @@
   </head>
   <body>
     <div id="content">
-      <h1>Disappearing Header</h1>
+      <h1>Knockout Table</h1>
       <p>source: <a href="https://github.com/jayrgee/knockout-tables">https://github.com/jayrgee/knockout-tables</a></p>
       <div class="sticky-header">
         <select id="collection" data-bind="options: collections"></select>
@@ -38,7 +38,7 @@
             <th>Country</th>
           </tr>
         </thead>
-        <tbody data-bind="foreach: filmsToShow">
+        <tbody data-bind="foreach: filmsToShow, childrenComplete: myPostProcessingLogic">
           <tr>
             <td data-bind="text: Title"></td>
             <td data-bind="text: Director"></td>
