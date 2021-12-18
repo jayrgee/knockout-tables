@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "serve public"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "knockout": "^2.2.1"
+  },
+  "devDependencies": {
+    "serve": "^13.0.2"
   }
 }
