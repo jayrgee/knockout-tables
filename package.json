@@ -9,10 +9,9 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "knockout": "^2.2.1"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "knockout": "^3.5.1",
     "serve": "^13.0.2"
   }
 }

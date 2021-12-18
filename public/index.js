@@ -42,7 +42,7 @@ const APP_MODEL = {};
       model.genreToShow = ko.observable(BLANK);
       model.countryToShow = ko.observable(BLANK);
 
-      model.filmsToShow = ko.computed(function () {
+      model.filmsToShow = ko.pureComputed(function () {
         // Returns a filtered list of films
 
         // get selection criteria
