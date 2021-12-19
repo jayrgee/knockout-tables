@@ -1,9 +1,10 @@
 # knockout tables
 
-render and filter html table with knockout js 2.2.1
+render and filter html table with knockout js 3.5.1
 
 ```
-npx serve public
+npm i
+npm serve public
 ```
 
 ----
