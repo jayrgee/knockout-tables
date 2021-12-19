@@ -67,10 +67,11 @@ const APP_MODEL = {};
         console.log(`myPostProcessingLogic: ${index}`);
         const rows = document.querySelectorAll('tbody tr');
 
-        if (index > 3) {
-          // offset scroll to account for sticky header
+        const rowOffset = 5; // rows to display before first highlighted row
+        if (index > rowOffset - 1) {
+          // adjust scroll to account for sticky header
           const dy =
-            rows[index - 4].getBoundingClientRect().top -
+            rows[index - rowOffset].getBoundingClientRect().top -
             rows[0].getBoundingClientRect().top;
           window.scrollTo(0, dy);
         } else {
