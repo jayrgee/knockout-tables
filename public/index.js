@@ -5,6 +5,12 @@ const APP_MODEL = {};
   fetch('films.json')
     .then((response) => response.json())
     .then((data) => data.sort((a, b) => (a.Year > b.Year ? 1 : -1)))
+    .then((data) =>
+      data.map((i) => {
+        i.highlight = i.Year > '1999' ? true : false;
+        return i;
+      })
+    )
     .then((data) => {
       model.data = data;
 
@@ -48,27 +54,40 @@ const APP_MODEL = {};
         // get selection criteria
         const genre = model.genreToShow();
         const country = model.countryToShow();
-
-        model.filterResult = ko.utils.arrayFilter(data, function (film) {
-          return (
+        return ko.utils.arrayFilter(
+          data,
+          (film) =>
             (genre === BLANK || film.Genre.indexOf(genre) >= 0) &&
             (country === BLANK || film.Country.indexOf(country) >= 0)
-          );
-        });
-
-        return model.filterResult;
+        );
       }, model);
 
       model.myPostProcessingLogic = () => {
-        const index = model.filterResult.map(i => i.Year).findIndex(i => i > '1999');
+        const index = model.scrollIndex;
         console.log(`myPostProcessingLogic: ${index}`);
         const rows = document.querySelectorAll('tbody tr');
-        if (index > 4 & rows.length > 4) {
-          rows[index - 4].scrollIntoView();
+
+        if (index > 8 && rows.length > 8) {
+          rows[index - 8].scrollIntoView();
+        } else if (index > 3) {
+          window.scrollTo(0, 28.6 * (index - 3));
         } else {
-          window.scrollTo(0,0);
+          console.log('window scroll top');
+          window.scrollTo(0, 0);
         }
       };
+
+      model.scrollIndex = data
+        .map((i) => i.highlight)
+        .findIndex((i) => i === true);
+
+      model.filmsToShow.subscribe((updated) => {
+        //console.log(updated);
+        model.scrollIndex = updated
+          .map((i) => i.highlight)
+          .findIndex((i) => i === true);
+        console.log(`model.scrollIndex: ${model.scrollIndex}`);
+      });
 
       ko.applyBindings(model);
     });

@@ -10,8 +10,8 @@
   </head>
   <body>
     <div id="content">
-      <h1>Knockout Table</h1>
-      <p>source: <a href="https://github.com/jayrgee/knockout-tables">https://github.com/jayrgee/knockout-tables</a></p>
+      <!-- <h1>Knockout Table</h1>
+      <p>source: <a href="https://github.com/jayrgee/knockout-tables">https://github.com/jayrgee/knockout-tables</a></p> -->
       <div class="sticky-header">
         <select id="collection" data-bind="options: collections"></select>
       </div>
@@ -39,7 +39,7 @@
           </tr>
         </thead>
         <tbody data-bind="foreach: filmsToShow, childrenComplete: myPostProcessingLogic">
-          <tr>
+          <tr data-bind="css: { nohighlight: highlight !== true }">
             <td data-bind="text: Title"></td>
             <td data-bind="text: Director"></td>
             <td data-bind="text: Year"></td>
@@ -47,49 +47,8 @@
             <td data-bind="text: Country"></td>
           </tr>
         </tbody>
+        <tfoot><tr><td colspan="5"></td></tr></tfoot>
       </table>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
     </div>
     <script src="knockout-latest.js"></script>
     <script src="index.js"></script>

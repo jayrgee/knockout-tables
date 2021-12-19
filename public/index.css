@@ -1,3 +1,6 @@
+body {
+  margin: 0;
+}
 body, option {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -17,14 +20,26 @@ div.sticky-header {
   background-color: burlywood;
 }
 
+tr.highlight {
+  background-color: gold;
+}
+
+tr.nohighlight {
+  background-color: gainsboro;
+}
+
 th {
   width: 20%;
   padding: 3px;
 }
 
-td {
+tbody td {
   padding: 3px;
   border-bottom: #ddd 2px solid;
+}
+
+tfoot {
+  height: 900px;
 }
 
 table {
