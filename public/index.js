@@ -67,10 +67,10 @@ const APP_MODEL = {};
         console.log(`myPostProcessingLogic: ${index}`);
         const rows = document.querySelectorAll('tbody tr');
 
-        if (index > 8 && rows.length > 8) {
-          rows[index - 8].scrollIntoView();
-        } else if (index > 3) {
-          window.scrollTo(0, 28.6 * (index - 3));
+        if (index > 3) {
+          // offset scroll to account for sticky header
+          const dy = rows[index - 4].getBoundingClientRect().top - rows[0].getBoundingClientRect().top
+          window.scrollTo(0, dy);
         } else {
           console.log('window scroll top');
           window.scrollTo(0, 0);
