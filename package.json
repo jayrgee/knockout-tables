@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "serve public"
+    "copy": "copyfiles -V -f node_modules/knockout/build/output/knockout-latest.js public",
+    "dev": "serve public",
+    "start": "npm run copy && serve public"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
+    "copyfiles": "^2.4.1",
     "knockout": "^3.5.1",
     "serve": "^13.0.2"
   }
