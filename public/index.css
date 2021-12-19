@@ -24,7 +24,7 @@ tr.highlight {
   background-color: gold;
 }
 
-tr.nohighlight {
+tr.dim {
   background-color: gainsboro;
 }
 
@@ -40,6 +40,10 @@ tbody td {
 
 tfoot {
   height: 900px;
+}
+
+tfoot td {
+  border-top: darkgray 3px solid;
 }
 
 table {

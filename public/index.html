@@ -39,7 +39,7 @@
           </tr>
         </thead>
         <tbody data-bind="foreach: filmsToShow, childrenComplete: myPostProcessingLogic">
-          <tr data-bind="css: { nohighlight: highlight !== true }">
+          <tr data-bind="css: { dim: highlight !== true }">
             <td data-bind="text: Title"></td>
             <td data-bind="text: Director"></td>
             <td data-bind="text: Year"></td>

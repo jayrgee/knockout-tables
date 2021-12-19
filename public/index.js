@@ -69,7 +69,9 @@ const APP_MODEL = {};
 
         if (index > 3) {
           // offset scroll to account for sticky header
-          const dy = rows[index - 4].getBoundingClientRect().top - rows[0].getBoundingClientRect().top
+          const dy =
+            rows[index - 4].getBoundingClientRect().top -
+            rows[0].getBoundingClientRect().top;
           window.scrollTo(0, dy);
         } else {
           console.log('window scroll top');
@@ -77,15 +79,14 @@ const APP_MODEL = {};
         }
       };
 
-      model.scrollIndex = data
-        .map((i) => i.highlight)
-        .findIndex((i) => i === true);
+      const findFirstHighlightIndex = (arr) =>
+        arr.map((i) => i.highlight).findIndex((i) => i === true);
+
+      model.scrollIndex = findFirstHighlightIndex(data);
 
       model.filmsToShow.subscribe((updated) => {
         //console.log(updated);
-        model.scrollIndex = updated
-          .map((i) => i.highlight)
-          .findIndex((i) => i === true);
+        model.scrollIndex = findFirstHighlightIndex(updated);
         console.log(`model.scrollIndex: ${model.scrollIndex}`);
       });
 
