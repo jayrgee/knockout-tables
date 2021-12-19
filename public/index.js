@@ -62,9 +62,9 @@ const APP_MODEL = {};
         );
       }, model);
 
-      model.myPostProcessingLogic = () => {
-        const index = model.scrollIndex;
-        console.log(`myPostProcessingLogic: ${index}`);
+      model.scrollToHightlightedRows = () => {
+        const index = model.highlightIndex;
+        console.log(`scrollToHightlightedRows: ${index}`);
         const rows = document.querySelectorAll('tbody tr');
 
         const rowOffset = 5; // rows to display before first highlighted row
@@ -83,12 +83,12 @@ const APP_MODEL = {};
       const findFirstHighlightIndex = (arr) =>
         arr.map((i) => i.highlight).findIndex((i) => i === true);
 
-      model.scrollIndex = findFirstHighlightIndex(data);
+      model.highlightIndex = findFirstHighlightIndex(data);
 
       model.filmsToShow.subscribe((updated) => {
         //console.log(updated);
-        model.scrollIndex = findFirstHighlightIndex(updated);
-        console.log(`model.scrollIndex: ${model.scrollIndex}`);
+        model.highlightIndex = findFirstHighlightIndex(updated);
+        console.log(`model.highlightIndex: ${model.highlightIndex}`);
       });
 
       ko.applyBindings(model);

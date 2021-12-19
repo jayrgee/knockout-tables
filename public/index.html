@@ -38,7 +38,7 @@
             <th>Country</th>
           </tr>
         </thead>
-        <tbody data-bind="foreach: filmsToShow, childrenComplete: myPostProcessingLogic">
+        <tbody data-bind="foreach: filmsToShow, childrenComplete: scrollToHightlightedRows">
           <tr data-bind="css: { dim: highlight !== true }">
             <td data-bind="text: Title"></td>
             <td data-bind="text: Director"></td>
