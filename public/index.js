@@ -89,6 +89,9 @@ const APP_MODEL = {};
         //console.log(updated);
         model.highlightIndex = findFirstHighlightIndex(updated);
         console.log(`model.highlightIndex: ${model.highlightIndex}`);
+        if (model.highlightIndex < 0) {
+          window.scrollTo(0, 0);
+        }
       });
 
       ko.applyBindings(model);
