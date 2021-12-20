@@ -68,15 +68,16 @@ const APP_MODEL = {};
         const rows = document.querySelectorAll('tbody tr');
 
         const rowOffset = 5; // rows to display before first highlighted row
+        const scrollContent = document.getElementById('scroll-content');
         if (index > rowOffset - 1) {
           // adjust scroll to account for sticky header
           const dy =
             rows[index - rowOffset].getBoundingClientRect().top -
             rows[0].getBoundingClientRect().top;
-          window.scrollTo(0, dy);
+          scrollContent.scrollTo(0, dy);
         } else {
           console.log('window scroll top');
-          window.scrollTo(0, 0);
+          scrollContent.scrollTo(0, 0);
         }
       };
 
@@ -94,6 +95,6 @@ const APP_MODEL = {};
         }
       });
 
-      ko.applyBindings(model);
+      ko.applyBindings({ films: model });
     });
 })(APP_MODEL);

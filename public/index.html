@@ -6,49 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link href="index.css" rel="stylesheet" />
-    <link rel="icon" href="data:;base64,=">
+    <link rel="icon" href="data:;base64,=" />
   </head>
   <body>
+    <div id="header">
+      <h1>fixed header</h1>
+      <p>scroling content below this fixed header includes sticky div and sticky table header</p>
+    </div>
     <div id="content">
-      <!-- <h1>Knockout Table</h1>
-      <p>source: <a href="https://github.com/jayrgee/knockout-tables">https://github.com/jayrgee/knockout-tables</a></p> -->
-      <div class="sticky-header">
-        <select id="collection" data-bind="options: collections"></select>
+      <div id="scroll-content" data-bind="with: films">
+        <div class="sticky-header">
+          <select id="collection" data-bind="options: collections"></select>
+        </div>
+        <table class="sticky">
+          <thead>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <select
+                  data-bind="options: genres, value: genreToShow"
+                ></select>
+              </td>
+              <td>
+                <select
+                  data-bind="options: countries, value: countryToShow"
+                ></select>
+              </td>
+            </tr>
+            <tr>
+              <th>Title</th>
+              <th>Director</th>
+              <th>Year</th>
+              <th>Genre</th>
+              <th>Country</th>
+            </tr>
+          </thead>
+          <tbody
+            data-bind="foreach: filmsToShow, childrenComplete: scrollToHightlightedRows"
+          >
+            <tr data-bind="css: { dim: highlight !== true }">
+              <td data-bind="text: Title"></td>
+              <td data-bind="text: Director"></td>
+              <td data-bind="text: Year"></td>
+              <td data-bind="text: Genre"></td>
+              <td data-bind="text: Country"></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5"></td>
+            </tr>
+          </tfoot>
+        </table>
       </div>
-      <table class="sticky">
-        <thead>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-              <select data-bind="options: genres, value: genreToShow"></select>
-            </td>
-            <td>
-              <select
-                data-bind="options: countries, value: countryToShow"
-              ></select>
-            </td>
-          </tr>
-          <tr>
-            <th>Title</th>
-            <th>Director</th>
-            <th>Year</th>
-            <th>Genre</th>
-            <th>Country</th>
-          </tr>
-        </thead>
-        <tbody data-bind="foreach: filmsToShow, childrenComplete: scrollToHightlightedRows">
-          <tr data-bind="css: { dim: highlight !== true }">
-            <td data-bind="text: Title"></td>
-            <td data-bind="text: Director"></td>
-            <td data-bind="text: Year"></td>
-            <td data-bind="text: Genre"></td>
-            <td data-bind="text: Country"></td>
-          </tr>
-        </tbody>
-        <tfoot><tr><td colspan="5"></td></tr></tfoot>
-      </table>
     </div>
     <script src="knockout-latest.js"></script>
     <script src="index.js"></script>

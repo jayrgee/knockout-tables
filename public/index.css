@@ -1,13 +1,42 @@
-body {
+body,
+option {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#header {
+  flex-grow: 0;
+  padding: 0 20px;
+  background-color: ghostwhite;
+}
+
+#content {
+  overflow: hidden;
+  flex-grow: 1;
+  position: relative;
+}
+
+#scroll-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+}
+
+html, body {
+  height: 100%;
+  padding: 0;
   margin: 0;
 }
-body, option {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+body {
+  display: flex;
+  flex-direction: column;
 }
 
 select#collection {
   height: 34px;
-  margin-bottom: 22px;
 }
 
 option {
@@ -20,8 +49,8 @@ div.sticky-header {
   background-color: burlywood;
 }
 
-tr.highlight {
-  background-color: gold;
+tbody tr {
+  background-color: ghostwhite;
 }
 
 tr.dim {
@@ -38,8 +67,13 @@ tbody td {
   border-bottom: #ddd 2px solid;
 }
 
+tbody tr.dim td {
+  border-bottom-color: ghostwhite;
+}
+
 tfoot {
   height: 900px;
+  background-color: ghostwhite;
 }
 
 tfoot td {
@@ -47,16 +81,13 @@ tfoot td {
 }
 
 table {
+  width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
 }
 
-table.sticky {
-  width: 100%;
-}
-
 table.sticky thead {
   position: sticky;
-  top: 56px;
+  top: 34px;
   background-color: aquamarine;
 }
