@@ -11,7 +11,10 @@
   <body>
     <div id="header">
       <h1>fixed header</h1>
-      <p>scroling content below this fixed header includes sticky div and sticky table header</p>
+      <p>
+        scroling content below this fixed header includes sticky div and sticky
+        table header
+      </p>
     </div>
     <div id="content">
       <div id="scroll-content" data-bind="with: films">
@@ -46,7 +49,7 @@
           <tbody
             data-bind="foreach: filmsToShow, childrenComplete: scrollToHightlightedRows"
           >
-            <tr data-bind="css: { dim: highlight !== true }">
+            <tr data-bind="css: { dim: highlight === false }, class: highlight">
               <td data-bind="text: Title"></td>
               <td data-bind="text: Director"></td>
               <td data-bind="text: Year"></td>
@@ -60,6 +63,7 @@
             </tr>
           </tfoot>
         </table>
+        <input />
       </div>
     </div>
     <script src="knockout-latest.js"></script>
